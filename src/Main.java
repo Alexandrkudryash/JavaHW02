@@ -25,8 +25,21 @@ public class Main {
         searchStr(string1First,string1Second);
 
         // Задача 2.вызов метода
+        System.out.println("Задача 2");
+        String string2First ="boolean";
+        String string2Second ="naeloob";
+        checkRotationStrings(string2First, string2Second);
+        String string2Third ="openspace";
+        String string2Fourth ="spaceopen";
+        checkRotationStrings(string2Third, string2Fourth);
+
 
         // Задача 3.вызов метода
+        System.out.println("Задача 3");
+        StringBuilder sb3 = new StringBuilder("я пишу письмо ласипан ежу омьсип я");
+        recurseRevers(sb3);
+        System.out.println();
+
         // Задача 4.вызов метода
         // Задача 5.вызов метода
         // Задача 6.вызов метода
@@ -50,7 +63,22 @@ public class Main {
         System.out.println(Arrays.toString(arr3));
     }
 // Задача 2. Метод.
+    static void checkRotationStrings(String s1, String s2){
+        StringBuilder sTemp = new StringBuilder();
+        for (int i = s1.length()-1; i >=0; i--) {
+            sTemp.append(s1.charAt(i));
+        }
+        System.out.println(sTemp);
+        System.out.println(s2.compareTo(sTemp.toString())==0);
+        }
+// Задача 3. Метод.
+    static StringBuilder recurseRevers(StringBuilder sb){
+        System.out.print(sb.charAt(sb.length()-1));
+        if (sb.length()== 1) {
+           return sb;
+        }
+        return recurseRevers(sb.deleteCharAt(sb.length()-1));
 
-
+         }
 
 }
