@@ -41,9 +41,31 @@ public class Main {
         System.out.println();
 
         // Задача 4.вызов метода
+        System.out.println("Задача 4");
+        int first4 = 3;
+        int second4 = 56;
+        composeStrings(first4, second4);
+        System.out.println();
+
         // Задача 5.вызов метода
+        System.out.println("Задача 5");
+        String strFifth = "3 + 56 = 59";
+        replaceEqual(strFifth);
+
         // Задача 6.вызов метода
+        System.out.println("Задача 6");
+        String strSixth = "3 + 56 = 59";
+        System.out.println(replaceEqual2(strSixth));
+
         // Задача 7.вызов метода
+        System.out.println("Задача 7");
+        String strSeventh = fillStr();
+        long start = System.currentTimeMillis();
+        replaceEqual2(strSeventh);
+        System.out.println(System.currentTimeMillis() - start);
+        start = System.currentTimeMillis();
+        replaceEqStr(strSeventh);
+        System.out.println(System.currentTimeMillis()-start);
     }
 
 // Задача 1. Метод.
@@ -80,5 +102,59 @@ public class Main {
         return recurseRevers(sb.deleteCharAt(sb.length()-1));
 
          }
+// Задача 4. Метод
+    static void composeStrings(int n1, int n2){
+        StringBuilder res1 = new StringBuilder();
+        StringBuilder res2 = new StringBuilder();
+        StringBuilder res3 = new StringBuilder();
 
+        res1.append(n1);
+        res1.append(" + ");
+        res1.append(n2);
+        res1.append(" = ");
+        res1.append(n1 + n2);
+
+        res2.append(n1);
+        res2.append(" - ");
+        res2.append(n2);
+        res2.append(" = ");
+        res2.append(n1 - n2);
+
+        res3.append(n1);
+        res3.append(" * ");
+        res3.append(n2);
+        res3.append(" = ");
+        res3.append(n1 * n2);
+
+        System.out.println(res1.toString());
+        System.out.println(res2.toString());
+        System.out.println(res3.toString());
+    }
+// Задача 5. Метод
+    static void replaceEqual(String x) {
+        StringBuilder sb = new StringBuilder(x);
+        int eq = sb.indexOf("=");
+        sb.deleteCharAt(eq);
+        sb.insert(eq,"равно");
+        System.out.println(sb.toString());
+    }
+// Задача 6. Метод
+     static String replaceEqual2(String x) {
+        StringBuilder sb = new StringBuilder(x);
+        int eq = sb.indexOf("=");
+        sb.replace(eq,eq+1,"равно");
+        return sb.toString();
+        }
+// Задача 7. Метод
+     static String fillStr(){
+        String str = "";
+         for (int i = 0; i <= 10000 ; i++) {
+             str += " = ";
+         }
+        return str;
+     }
+     static String replaceEqStr(String x){
+        x.replace("=", "равно");
+        return x;
+     }
 }
